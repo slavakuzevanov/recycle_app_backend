@@ -95,11 +95,6 @@ def login_user():
                 if password == response[2]:
                     return {'message': f'User with email: {email} logged in successfully'}, 200
                 else:
-                    return {'message': f'User with such email or password does not exists'}, 300
-            with open('sql/insert_user_return_id.sql', 'r') as f:
-                CREATE_NEW_USER = f.read()
-            print(CREATE_NEW_USER)
-            cursor.execute(CREATE_NEW_USER, (surname, name, email, password, phone, country))
-            user_id = cursor.fetchone()[0]
-            print(user_id)
-    return {'user_id': user_id, 'message': f'User {user_id} with email {email} created.'}, 201
+                    return {'message': f'Password is incorrect. Please, try again'}, 300
+            else:
+                return {'message': f'User with email: {email} does not exists'}
