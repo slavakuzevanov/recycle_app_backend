@@ -5,12 +5,6 @@ from flask import Flask, request
 import json
 from recycling_app_func import get_data_from_request
 
-with open('sql/table_creation.sql', 'r') as f:
-    DATABASE_CREATION = f.read()
-
-# print(creation_sql)
-
-
 load_dotenv()
 
 app = Flask(__name__)
@@ -21,6 +15,8 @@ connection = psycopg2.connect(url)
 try:
     with connection:
         with connection.cursor() as cursor:
+            with open('sql/table_creation.sql', 'r') as f:
+                DATABASE_CREATION = f.read()
             cursor.execute(DATABASE_CREATION)
 except Exception as e:
     print(e)
