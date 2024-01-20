@@ -73,7 +73,7 @@ def create_new_user():
             print(user_id)
     return {'user_id': user_id, 'message': f'User {user_id} with email {email} created.'}, 201
 
-@app.get("/api/login")
+@app.post("/api/login")
 def login_user():
     data = get_data_from_request(request)
 
