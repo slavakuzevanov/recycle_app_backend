@@ -65,7 +65,7 @@ def create_new_user():
             with open('sql/insert_user_return_id.sql', 'r') as f:
                 CREATE_NEW_USER = f.read()
             print(CREATE_NEW_USER)
-            cursor.execute(CREATE_NEW_USER, (surname, name, email, password, phone, country))
+            cursor.execute(CREATE_NEW_USER, (name, email, password))
             user_id = cursor.fetchone()[0]
             print(user_id)
     return {'user_id': user_id, 'message': f'User {user_id} with email {email} created.'}, 201
