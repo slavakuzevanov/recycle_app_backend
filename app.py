@@ -68,7 +68,7 @@ def create_new_user():
             cursor.execute(CREATE_NEW_USER, (name, email, password))
             user_id = cursor.fetchone()[0]
             print(user_id)
-    return {'user_id': user_id, 'message': f'User {user_id} with email {email} created.'}, 201
+    return {'user_id': user_id, 'name': name, 'message': f'User {user_id} with email {email} created.'}, 201
 
 @app.post("/api/login")
 def login_user():
