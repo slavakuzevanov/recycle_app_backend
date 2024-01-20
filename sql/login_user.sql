@@ -1,3 +1,3 @@
-select user_id, email, password
+select user_id, name, password
 from "User"
 where email = %s

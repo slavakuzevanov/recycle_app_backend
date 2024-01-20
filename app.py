@@ -91,9 +91,9 @@ def login_user():
 
             # Если пользователь с таким email есть, то сравниваем пароли
             if response:
-                print(response[2])
                 if password == response[2]:
-                    return {'message': f'User with email: {email} logged in successfully'}, 200
+                    return {'user_id': response[0], 'name': response[1],
+                            'message': f'User with email: {email} logged in successfully'}, 200
                 else:
                     return {'message': f'Password is incorrect. Please, try again'}, 401
             else:
