@@ -127,8 +127,8 @@ CREATE TABLE "User"
 	name                 VARCHAR(45) NOT NULL,
 	email                VARCHAR(30) NOT NULL,
 	password             VARCHAR(30) NOT NULL,
-	phone                VARCHAR(20) NOT NULL,
-	country              VARCHAR(20) NOT NULL
+	phone                VARCHAR(20),
+	country              VARCHAR(20)
 );
 
 

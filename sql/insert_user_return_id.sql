@@ -1,3 +1,3 @@
-INSERT INTO "User" (surname, name, email, password, phone, country)
-VALUES (%s, %s, %s, %s, %s, %s)
+INSERT INTO "User" (name, email, password)
+VALUES (%s, %s, %s)
 RETURNING user_id;

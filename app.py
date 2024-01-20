@@ -46,12 +46,9 @@ def create_new_user():
     data = get_data_from_request(request)
 
     # получаю переданные параметры
-    surname = data['surname'] 
     name = data['name']
     email = data['email']
     password = data['password']
-    phone = data['phone']
-    country = data['country']
 
     with connection:
         with connection.cursor() as cursor:
