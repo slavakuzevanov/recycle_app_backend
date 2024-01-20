@@ -64,7 +64,7 @@ def create_new_user():
 
             # Если пользователь с таким email есть, то выходим из функции
             if user_id:
-                return {'message': f'User with email: {email} already exists'}, 200
+                return {'message': f'User with email: {email} already exists'}, 401
             with open('sql/insert_user_return_id.sql', 'r') as f:
                 CREATE_NEW_USER = f.read()
             print(CREATE_NEW_USER)
@@ -95,6 +95,6 @@ def login_user():
                 if password == response[2]:
                     return {'message': f'User with email: {email} logged in successfully'}, 200
                 else:
-                    return {'message': f'Password is incorrect. Please, try again'}, 300
+                    return {'message': f'Password is incorrect. Please, try again'}, 401
             else:
-                return {'message': f'User with email: {email} does not exists'}
+                return {'message': f'User with email: {email} does not exists'}, 401
